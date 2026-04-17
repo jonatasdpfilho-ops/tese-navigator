@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+
 import { qualificarTeses, TESES, type Tese, type Regime, type Maturidade, type Area, type Risco } from "@/data/teses";
 import { maskCnpj, maskMoney, unmask } from "@/lib/masks";
 import { Button } from "@/components/ui/button";
