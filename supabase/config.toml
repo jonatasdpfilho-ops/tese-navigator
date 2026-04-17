@@ -1,0 +1,7 @@
+project_id = "jdganpxhqvhxxpbckcgt"
+
+[functions.consulta-cnpj]
+verify_jwt = false
+
+[functions.analise-ia]
+verify_jwt = false
