@@ -1,5 +1,12 @@
 import jsPDF from "jspdf";
 import type { Tese, Maturidade } from "@/data/teses";
+import type { Oportunidade, RespostasEmpresa, Urgencia } from "@/data/oportunidades";
+
+const URGENCIA_RGB: Record<Urgencia, [number, number, number]> = {
+  Alta: [155, 28, 28],
+  Média: [201, 168, 76],
+  Baixa: [20, 92, 56],
+};
 
 const MATURITY_RGB: Record<Maturidade, [number, number, number]> = {
   "Pacificada": [20, 92, 56],
