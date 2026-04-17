@@ -80,19 +80,13 @@ const Index = () => {
 
     try {
       // 1. Consulta CNPJ
-      const { data, error } = await supabase.functions.invoke("consulta-cnpj", {
-        method: "GET" as any,
-      }).then(async () => {
-        // invoke não suporta query params nativamente — usar fetch direto
-        const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/consulta-cnpj?cnpj=${cnpjLimpo}`;
-        const r = await fetch(url, {
-          headers: { Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}` },
-        });
-        const j = await r.json();
-        return { data: j, error: r.ok ? null : new Error(j.error || "Falha") };
+      const cnpjUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/consulta-cnpj?cnpj=${cnpjLimpo}`;
+      const r = await fetch(cnpjUrl, {
+        headers: { Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}` },
       });
+      const data = await r.json();
 
-      if (error || !data || data.error) {
+      if (!r.ok || data?.error) {
         toast.error(data?.error || "Não foi possível consultar o CNPJ.");
         setLoading(false);
         return;
