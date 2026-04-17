@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.analise-ia]
 verify_jwt = false
+
+[functions.analise-empresarial-ia]
+verify_jwt = false
