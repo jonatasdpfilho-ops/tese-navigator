@@ -8,3 +8,9 @@ verify_jwt = false
 
 [functions.analise-empresarial-ia]
 verify_jwt = false
+
+[functions.consulta-datajud]
+verify_jwt = false
+
+[functions.analise-processos-ia]
+verify_jwt = false
